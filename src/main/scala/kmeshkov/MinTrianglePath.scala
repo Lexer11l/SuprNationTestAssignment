@@ -5,11 +5,14 @@ import scala.io.StdIn.readLine
 
 object MinTrianglePath {
 
-  implicit private def compare(x: (Int, List[Int]), y: (Int, List[Int])) = if (x._1 > y._1) y else x
+  private val min = (x: (Int, List[Int]), y: (Int, List[Int])) => if (x._1 > y._1) y else x
+  private val max = (x: (Int, List[Int]), y: (Int, List[Int])) => if (x._1 < y._1) y else x
 
   def main(args: Array[String]): Unit = {
+    implicit val compare1 = if (args.headOption.contains("max")) max else min
+    val acc = List[(Int, List[Int])]()
     readValues()
-      .foldRight(List[(Int, List[Int])]())(mapLine)
+      .foldRight(acc)(mapLine)
       .map(buildResult)
       .foreach(println)
   }

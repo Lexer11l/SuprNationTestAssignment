@@ -11,3 +11,7 @@ However, I suggest to use following flow:
 * after building finished run the application with `java -jar target/scala-2.13/MinTrianglePath.jar`
 * if you are using unix-like system you can run initial data from file by 
 `cat test_data/test.txt | java -jar target/scala-2.13/MinTrianglePath.jar`
+
+**You can choose comparison algorithm (Max or Min path) by passing "max" or "min" as java argument**
+
+*Please note that by default algorithm is min path*
